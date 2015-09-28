@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cnumber: 1
+  ctype: MyString
+  xmonth: 1
+  xyear: 1
+  balance: 1.5
+
+two:
+  cnumber: 1
+  ctype: MyString
+  xmonth: 1
+  xyear: 1
+  balance: 1.5
