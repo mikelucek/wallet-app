@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150928155655) do
 
   create_table "cards", force: :cascade do |t|
-    t.integer  "cnumber"
+    t.string   "cnumber"
     t.string   "ctype"
     t.integer  "xmonth"
     t.integer  "xyear"
@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 20150928155655) do
     t.string   "fname"
     t.string   "lname"
     t.string   "email"
-    t.integer  "phone"
+    t.string   "phone"
+    t.string   "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
