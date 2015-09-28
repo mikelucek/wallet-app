@@ -1,0 +1,11 @@
+<h1>new.html.erb</h1>
+
+<%= form_for @user do |x| %>
+<%= x.text_field :fname, :placeholder => "First name" %>
+<%= x.text_field :lname, :placeholder => "Last name" %>
+<%= x.text_field :email, :placeholder => "Email" %>
+<%= x.text_field :phone, :placeholder => "Phone number" %>
+<%= x.text_field :password, :placeholder => "password" %>
+<%= x.submit :create %>
+
+<% end %>

@@ -1,0 +1,7 @@
+<h1>Sign in</h1>
+
+<%= form_tag("/create", method: "get") do %>
+<%= text_field_tag(:email, '', :placeholder => "sign in with email") %>
+<%= text_field_tag(:password,'', :placeholder => "password") %>
+<%= submit_tag("Log In") %>
+<% end %>
