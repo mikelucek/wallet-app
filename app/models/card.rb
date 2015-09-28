@@ -1,11 +1,11 @@
 class Card < ActiveRecord::Base
-	has_many :usercards
-	has_many :users, through: :usercards
+	has_many :user_cards
+	has_many :users, :through => :user_cards
 	validates_numericality_of :cnumber
-	validates_length_of :cnumber, :is==16
-	validates_numericality_of :month
+	validates_length_of :cnumber, :is => 16
+	validates_numericality_of :xmonth
 
-	validates_numericality_of :year 
+	validates_numericality_of :xyear 
 
 	validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
