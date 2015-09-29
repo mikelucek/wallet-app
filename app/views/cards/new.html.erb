@@ -1,0 +1,9 @@
+new.index.erb
+
+<%= form_for @card do |x| %>
+<%= x.text_field :cnumber, :placeholder => "card number" %>
+<%= x.text_field :xmonth, :placeholder => "expiry month" %>
+<%= x.text_field :xyear, :placeholder => "expiry year" %>
+<%= x.text_field :balance, :placeholder => "starting balance" %>
+<%= x.submit :create %>
+<% end %>
