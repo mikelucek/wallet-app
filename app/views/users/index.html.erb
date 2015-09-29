@@ -1,3 +1,18 @@
 index.html.erb
 
 cool stuff is going to happen here.
+<ul>
+<% @users.each do |x| %>
+	<li> user:
+		<%= x.fname %> <%= x.lname %>
+		<ul>
+			<% x.cards.each do |y| %>
+			<li> available card:
+				<%= y.cnumber %>
+			</li>
+			<% end %>
+		</ul>
+	</li>
+
+<% end %>
+</ul>
