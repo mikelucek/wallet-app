@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
 	has_many :user_cards
 	has_many :users, :through => :user_cards
+	validates :cnumber, uniqueness: true
 	validates_numericality_of :cnumber
 	validates_length_of :cnumber, :is => 16
 	validates_numericality_of :xmonth
