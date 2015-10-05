@@ -1,5 +1,7 @@
 new.index.erb
 
+<%= @card.errors.full_messages %>
+
 <%= form_for @card do |x| %>
 <%= x.text_field :cnumber, :placeholder => "card number" %>
 <%= x.text_field :xmonth, :placeholder => "expiry month" %>

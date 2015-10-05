@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :users
   resources :cards
+  resources :relationships
 
   get "/signin" => "sessions#new"
   get "/signout" => "sessions#destroy"
   get "/create" => "sessions#create"
+  post "/createrelationship" => "relationships#create"
 
   root 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.

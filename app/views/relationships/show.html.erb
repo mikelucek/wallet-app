@@ -1,0 +1,25 @@
+show.html.erb
+
+share card# <%= @card.cnumber %> with any of these users:
+
+<ul>
+<% @subset.each do |x| %>
+	<li>
+		<%= x.fname %> <%= x.lname %> <%= x.email %>
+		<%= form_tag("/relationships", method: "post") do %>
+		<%= hidden_field_tag(:user_id, x.id) %>
+		<%= hidden_field_tag(:card_id, @card.id) %>
+		<%= submit_tag("share") %>
+<% end %>
+	</li>
+<% end %>
+</ul>
+
+<ul>
+<% @unshare.each do |x| %>
+	<li>
+	<%= x.fname %> <%= x.lname %> <%= x.email %>
+	<%= link_to "unshare", relationship_path(user_id: x.id, card_id: @card.id), method: :delete %>
+	</li>
+<% end %>
+</ul>

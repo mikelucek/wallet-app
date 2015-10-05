@@ -8,8 +8,10 @@
 </head>
 <body>
 
+<div id="flash">
 <%= flash[:notice] if flash[:notice] %>
 <%= flash[:alert] if flash[:alert] %>
+</div>
 
 <%= yield %>
 

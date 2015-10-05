@@ -23,7 +23,7 @@ class CardsController < ApplicationController
 			redirect_to root_path
 		else
 			flash[:notice] = "error saving card. try again."
-			redirect_to new_card_path
+			render new_card_path
 		end
 		#make the card, and make an association on user_card as well
 	end
@@ -38,6 +38,8 @@ class CardsController < ApplicationController
 	end
 
 	def share
+
+		@relationship = UserCard.new(user_id: XXX, card_id: XXX )
 		#make an association on the join table
 	end
 

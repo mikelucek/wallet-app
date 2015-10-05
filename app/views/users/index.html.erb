@@ -9,6 +9,9 @@ cool stuff is going to happen here.
 			<% x.cards.each do |y| %>
 			<li> available card:
 				<%= y.cnumber %>
+				<% if x.id == session[:id] %>
+				<%= link_to "share or unshare", (relationship_path y) %>
+				<% end %>
 			</li>
 			<% end %>
 		</ul>
