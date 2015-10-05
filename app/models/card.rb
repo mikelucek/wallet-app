@@ -5,7 +5,7 @@ class Card < ActiveRecord::Base
 	# validates_numericality_of :cnumber
 	# validates_length_of :cnumber, :is => 16
 
-	validates_format_of :cnumber, :with => /\A4[0-9]{15}|5[1-5][0-9]{14}|3[47][0-9]{13}|6(?:011|5[0-9]{2})[0-9]{12}\z/
+	validates_format_of :cnumber, :with => /\A4[0-9]{15}\z|\A5[1-5][0-9]{14}\z|\A3[47][0-9]{13}\z|\A6(?:011|5[0-9]{2})[0-9]{12}\z/
 
 	# #check against known card regexes
 	#(?:4[0-9]{12}(?:[0-9]{3})?   visa   
