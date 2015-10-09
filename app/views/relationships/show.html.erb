@@ -1,12 +1,12 @@
-show.html.erb
-
-share card# <%= @card.cnumber %> with any of these users:
+<div id="card-float"><%= image_tag("/" + @card.ctype + ".png", width: "240") %>
+<p>(<%= @card.cnumber %>)</p></div>
 
 <ul>
 <% @subset.each do |x| %>
 	<li>
-		<%= x.fname %> <%= x.lname %> <%= x.email %>
-		<%= link_to "share", relationships_path(user_id: x.id, card_id: @card.id), method: :post %>
+		
+		<%= link_to "link", relationships_path(user_id: x.id, card_id: @card.id), method: :post %>
+		 it to <%= x.fname %> <%= x.lname %> (<%= x.email %>)
 	</li>
 <% end %>
 </ul>
@@ -14,15 +14,15 @@ share card# <%= @card.cnumber %> with any of these users:
 <ul>
 <% @unshare.each do |x| %>
 	<li>
-	<%= x.fname %> <%= x.lname %> <%= x.email %>
-	<%= link_to "unshare", relationship_path(user_id: x.id, card_id: @card.id), method: :delete %>
+	<%= link_to "unlink", relationship_path(user_id: x.id, card_id: @card.id), method: :delete %>
+	 it from <%= x.fname %> <%= x.lname %> (<%= x.email %>)
 	</li>
 <% end %>
 </ul>
 
 <ul>
 	<li>
-		or 
-		<%= link_to "delete this card", cards_path(@card.id), method: :delete  %>
+		<%= link_to "delete this card", card_path(card_id: @card.id), method: :delete  %>
+		 entirely
 	</li>
 </ul>

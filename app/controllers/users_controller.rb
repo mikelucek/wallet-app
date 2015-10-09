@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params.require(:user).permit(:fname, :lname, :email, :password, :phone))
 		if @user.save
+			session[:id] = @user.id
 			flash[:alert] = "created successfully"
 			redirect_to root_path
 		else
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		
+
 	end
 
 end

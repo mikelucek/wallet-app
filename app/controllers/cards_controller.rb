@@ -35,12 +35,19 @@ class CardsController < ApplicationController
 	end
 
 	def destroy
+		#first kill the card
+		@destruction = Card.where(id: params[:card_id]).first
+		@destruction.destroy
+		#then kill all the relationships
+		@relationship_destruction = UserCard.where(card_id: params[:card_id])
+		@relationship_destruction.each do |x|
+			x.destroy
+		end
+
+		flash[:notice] = "card deleted"
+		redirect_to root_path
 	end
 
-	def share
 
-		@relationship = UserCard.new(user_id: XXX, card_id: XXX )
-		#make an association on the join table
-	end
 
 end

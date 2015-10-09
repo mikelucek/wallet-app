@@ -20,9 +20,14 @@
 			<%= link_to "Sign In", signin_path %>
 		</li>
 		<li>
-			<%= link_to "Sign up", new_user_path %>
+			<%= link_to "Sign Up", new_user_path %>
 		</li>
 		<% else %>
+		<li>
+			Welcome, <%= User.find(session[:id]).fname %> <%= User.find(session[:id]).lname %>
+		</li>
+		<li>
+			<%= link_to "Add a New Card", new_card_path %>
 		<li>
 			<%= link_to "Update My Account", edit_user_path(session[:id]) %>
 		</li>
@@ -38,8 +43,9 @@
 	</ul>
 
 </div>
-
+<div id="body">
 <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,19 +1,21 @@
-index.html.erb
 
-cool stuff is going to happen here.
 <ul>
 <% @users.each do |x| %>
 	<li> user:
 		<%= x.fname %> <%= x.lname %>
 		<ul>
+			<% if x.cards.count < 1 %>
+				<li> No cards. </li>
+			<% else %>
 			<% x.cards.each do |y| %>
-			<li> <% y.ctype = "Visa" %>
+			<li> 
 				<%= image_tag("/" + y.ctype + ".png", width: "120") %>
 				<%= y.cnumber %>
 				<% if x.id == session[:id] %>
 				<%= link_to "share or unshare", (relationship_path y) %>
 				<% end %>
 			</li>
+			<% end %>
 			<% end %>
 		</ul>
 	</li>
