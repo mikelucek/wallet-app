@@ -22,4 +22,20 @@ class Card < ActiveRecord::Base
 
 	validates :balance, numericality: { greater_than_or_equal_to: 0 }
 
+	before_save :check_cardtype
+
+	def check_cardtype
+		if /\A4[0-9]{15}\z/.match(self.cnumber)
+			self.ctype = "Visa"
+		elsif /\A5[1-5][0-9]{14}\z/.match(self.cnumber)
+			self.ctype = "MasterCard"
+		elsif /\A3[47][0-9]{13}\z/.match(self.cnumber)
+			self.ctype = "AmericanExpress"
+		elsif /\A6(?:011|5[0-9]{2})[0-9]{12}\z/.match(self.cnumber)
+			self.ctype = "Discover"
+		else
+			self.ctype = "Unknown"
+		end		
+	end
+
 end

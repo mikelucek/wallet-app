@@ -17,8 +17,8 @@ class RelationshipsController < ApplicationController
 	def destroy
 		#unshare
 		puts "TEST"
-		puts @relationship = UserCard.where(user_id: params[:user_id], card_id: params[:card_id]).first
-		# @relationship.destroy
+		@relationship = UserCard.where(user_id: params[:user_id], card_id: params[:card_id]).first
+		@relationship.destroy
 		redirect_to root_path
 	end
 

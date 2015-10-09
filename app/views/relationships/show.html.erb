@@ -6,11 +6,7 @@ share card# <%= @card.cnumber %> with any of these users:
 <% @subset.each do |x| %>
 	<li>
 		<%= x.fname %> <%= x.lname %> <%= x.email %>
-		<%= form_tag("/relationships", method: "post") do %>
-		<%= hidden_field_tag(:user_id, x.id) %>
-		<%= hidden_field_tag(:card_id, @card.id) %>
-		<%= submit_tag("share") %>
-<% end %>
+		<%= link_to "share", relationships_path(user_id: x.id, card_id: @card.id), method: :post %>
 	</li>
 <% end %>
 </ul>
@@ -22,4 +18,11 @@ share card# <%= @card.cnumber %> with any of these users:
 	<%= link_to "unshare", relationship_path(user_id: x.id, card_id: @card.id), method: :delete %>
 	</li>
 <% end %>
+</ul>
+
+<ul>
+	<li>
+		or 
+		<%= link_to "delete this card", cards_path(@card.id), method: :delete  %>
+	</li>
 </ul>

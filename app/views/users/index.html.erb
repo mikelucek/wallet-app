@@ -7,7 +7,8 @@ cool stuff is going to happen here.
 		<%= x.fname %> <%= x.lname %>
 		<ul>
 			<% x.cards.each do |y| %>
-			<li> available card:
+			<li> <% y.ctype = "Visa" %>
+				<%= image_tag("/" + y.ctype + ".png", width: "120") %>
 				<%= y.cnumber %>
 				<% if x.id == session[:id] %>
 				<%= link_to "share or unshare", (relationship_path y) %>

@@ -13,6 +13,32 @@
 <%= flash[:alert] if flash[:alert] %>
 </div>
 
+<div id="nav">
+	<ul>
+		<% if !session[:id] %>
+		<li>
+			<%= link_to "Sign In", signin_path %>
+		</li>
+		<li>
+			<%= link_to "Sign up", new_user_path %>
+		</li>
+		<% else %>
+		<li>
+			<%= link_to "Update My Account", edit_user_path(session[:id]) %>
+		</li>
+		<li>
+			<%= link_to "Sign Out", signout_path %>
+		</li>
+		<li>
+			<%= link_to "Delete My Account", user_path(session[:id]), method: :delete %>
+		</li>
+
+		<% end %> 
+
+	</ul>
+
+</div>
+
 <%= yield %>
 
 </body>
